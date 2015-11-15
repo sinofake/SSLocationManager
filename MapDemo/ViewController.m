@@ -15,6 +15,8 @@
 #import "MapViewController.h"
 #import <AMapLocationKit/AMapLocationKit.h>
 
+
+
 @interface ViewController ()<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (nonatomic, strong) SSLocation *location;
