@@ -69,32 +69,31 @@
 - (IBAction)startLocationAction:(id)sender {
     __weak __typeof(self)weakSelf = self;
 
-    self.locationManager = [[AMapLocationManager alloc] init];
-    // 带逆地理（返回坐标和地址信息）
-    [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
-        
-        if (error)
-        {
-            NSLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
-            
-            weakSelf.statusLabel.text = [NSString stringWithFormat:@"locError:{%ld - %@};", (long)error.code, error.localizedDescription];
-            if (error.code == AMapLocationErrorReGeocodeFailed)
-            {
-                return;
-            }
-        }
-        
-        NSLog(@"location:%@", location);
-        
-        if (regeocode)
-        {
-            NSLog(@"reGeocode:%@", regeocode);
-        }
-        
-        weakSelf.statusLabel.text = [NSString stringWithFormat:@"location:%@, reGeocode:%@", location, regeocode];
-    }];
+//    self.locationManager = [[AMapLocationManager alloc] init];
+//    // 带逆地理（返回坐标和地址信息）
+//    [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
+//        
+//        if (error)
+//        {
+//            NSLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
+//            
+//            weakSelf.statusLabel.text = [NSString stringWithFormat:@"locError:{%ld - %@};", (long)error.code, error.localizedDescription];
+//            if (error.code == AMapLocationErrorReGeocodeFailed)
+//            {
+//                return;
+//            }
+//        }
+//        
+//        NSLog(@"location:%@", location);
+//        
+//        if (regeocode)
+//        {
+//            NSLog(@"reGeocode:%@", regeocode);
+//        }
+//        
+//        weakSelf.statusLabel.text = [NSString stringWithFormat:@"location:%@, reGeocode:%@", location, regeocode];
+//    }];
     
-    return;
     
     INTULocationManager *locMgr = [INTULocationManager sharedInstance];
     [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyCity
@@ -121,8 +120,7 @@
 }
 
 - (void)reverseGeocodeWithLocation:(CLLocation *)rawLocation {
-    SSLocation *processedLocation = [[SSLocation alloc] initWithCLLocation:rawLocation];
-    
+    SSLocation *processedLocation = [[SSLocation alloc] initWithCLLocation:rawLocation];    
     __weak __typeof(self)weakSelf = self;
     __weak SSLocation *weakProcessedLocation = processedLocation;
     [processedLocation startReverseGeocodeWithCompletionHandler:^(NSError *error) {
@@ -130,9 +128,9 @@
             weakSelf.statusLabel.text = error.localizedDescription;
         }
         else {
-            weakSelf.location = weakProcessedLocation;
             weakSelf.statusLabel.text = weakProcessedLocation.description;
         }
+        weakSelf.location = weakProcessedLocation;
     }];
 }
 

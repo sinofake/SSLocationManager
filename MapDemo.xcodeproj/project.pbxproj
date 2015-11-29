@@ -12,7 +12,6 @@
 		007807F31BF73CC700513761 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007807F21BF73CC700513761 /* ViewController.m */; };
 		007807F61BF73CC700513761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007807F41BF73CC700513761 /* Main.storyboard */; };
 		007807F81BF73CC700513761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007807F71BF73CC700513761 /* Assets.xcassets */; };
-		007807FB1BF73CC700513761 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007807F91BF73CC700513761 /* LaunchScreen.storyboard */; };
 		007808061BF73CC700513761 /* MapDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 007808051BF73CC700513761 /* MapDemoTests.m */; };
 		007808121BF77E8200513761 /* SSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 007808111BF77E8200513761 /* SSLocation.m */; };
 		007808151BF78E6000513761 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 007808141BF78E6000513761 /* NSString+URLEncoding.m */; };
@@ -40,7 +39,6 @@
 		007807F21BF73CC700513761 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		007807F51BF73CC700513761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		007807F71BF73CC700513761 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		007807FA1BF73CC700513761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		007807FC1BF73CC700513761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		007808011BF73CC700513761 /* MapDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		007808051BF73CC700513761 /* MapDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDemoTests.m; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				007808141BF78E6000513761 /* NSString+URLEncoding.m */,
 				007807F41BF73CC700513761 /* Main.storyboard */,
 				007807F71BF73CC700513761 /* Assets.xcassets */,
-				007807F91BF73CC700513761 /* LaunchScreen.storyboard */,
 				007807FC1BF73CC700513761 /* Info.plist */,
 				007807EB1BF73CC700513761 /* Supporting Files */,
 			);
@@ -238,7 +235,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				007807FB1BF73CC700513761 /* LaunchScreen.storyboard in Resources */,
 				007807F81BF73CC700513761 /* Assets.xcassets in Resources */,
 				007807F61BF73CC700513761 /* Main.storyboard in Resources */,
 			);
@@ -341,14 +337,6 @@
 				007807F51BF73CC700513761 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		007807F91BF73CC700513761 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				007807FA1BF73CC700513761 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
