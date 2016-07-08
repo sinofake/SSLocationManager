@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
+#import "SSAnnotation.h"
 
 @interface MapViewController : UIViewController
-@property (nonatomic, assign) CLLocationCoordinate2D fromcoord;
-@property (nonatomic, assign) CLLocationCoordinate2D tocoord;
+@property (nonatomic, strong) SSAnnotation *annotation;
+
 
 @end

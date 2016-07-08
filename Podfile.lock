@@ -1,19 +1,10 @@
 PODS:
-  - AMap3DMap (3.1.0.1)
-  - AMapLocation (1.0.0)
-  - AMapSearch (3.0.1)
-  - INTULocationManager (4.1.1)
+  - INTULocationManager (4.2.0)
 
 DEPENDENCIES:
-  - AMap3DMap (~> 3.1)
-  - AMapLocation (~> 1.0)
-  - AMapSearch (~> 3.0)
   - INTULocationManager (~> 4.1)
 
 SPEC CHECKSUMS:
-  AMap3DMap: 58f27323368dd0e351cc3c823a77ba389da294fc
-  AMapLocation: 56584af1044e16375407760ad39271364486c424
-  AMapSearch: 431b082417bd3da0c2fe594c4822b664607891e9
-  INTULocationManager: 83c7373048d583cda57e25eefb9bb8a3675acf16
+  INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
 
 COCOAPODS: 0.39.0

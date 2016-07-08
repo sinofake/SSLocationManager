@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000549E71D2A70B900E987B0 /* SSAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 000549E61D2A70B900E987B0 /* SSAnnotation.m */; };
 		007807ED1BF73CC700513761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 007807EC1BF73CC700513761 /* main.m */; };
 		007807F01BF73CC700513761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 007807EF1BF73CC700513761 /* AppDelegate.m */; };
 		007807F31BF73CC700513761 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007807F21BF73CC700513761 /* ViewController.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000549E51D2A70B900E987B0 /* SSAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAnnotation.h; sourceTree = "<group>"; };
+		000549E61D2A70B900E987B0 /* SSAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAnnotation.m; sourceTree = "<group>"; };
 		007807E81BF73CC700513761 /* MapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007807EC1BF73CC700513761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		007807EE1BF73CC700513761 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				007807F21BF73CC700513761 /* ViewController.m */,
 				009713B11BF7B548003A5F7C /* MapViewController.h */,
 				009713B21BF7B548003A5F7C /* MapViewController.m */,
+				000549E51D2A70B900E987B0 /* SSAnnotation.h */,
+				000549E61D2A70B900E987B0 /* SSAnnotation.m */,
 				007808161BF791CB00513761 /* MapNavModel.h */,
 				007808171BF791CB00513761 /* MapNavModel.m */,
 				007808101BF77E8200513761 /* SSLocation.h */,
@@ -304,6 +309,7 @@
 			files = (
 				007808151BF78E6000513761 /* NSString+URLEncoding.m in Sources */,
 				007807F31BF73CC700513761 /* ViewController.m in Sources */,
+				000549E71D2A70B900E987B0 /* SSAnnotation.m in Sources */,
 				007807F01BF73CC700513761 /* AppDelegate.m in Sources */,
 				007808121BF77E8200513761 /* SSLocation.m in Sources */,
 				007808181BF791CB00513761 /* MapNavModel.m in Sources */,

@@ -5,10 +5,6 @@
 
 target 'MapDemo' do
 pod 'INTULocationManager', '~> 4.1'
-#pod 'AMapSearch', '~> 3.0'
-#pod 'AMap3DMap', '~> 3.1'
-#pod 'AMap2DMap', '~> 3.1'
-pod 'AMapLocation', '~> 1.0'
 
 
 end

@@ -13,7 +13,6 @@
 #import "MapNavModel.h"
 #import <MapKit/MapKit.h>
 #import "MapViewController.h"
-#import <AMapLocationKit/AMapLocationKit.h>
 
 
 
@@ -23,8 +22,6 @@
 @property (nonatomic, assign) CLLocationCoordinate2D tocoord;
 @property (nonatomic, copy) NSString *toTitle;
 @property (nonatomic, strong) NSArray *navModels;
-
-@property (nonatomic, strong) AMapLocationManager *locationManager;
 
 @end
 
@@ -45,9 +42,9 @@
      (CLLocationCoordinate2D) ccld = (latitude = 40.000906209999997, longitude = 116.3716328)
      */
     self.tocoord = CLLocationCoordinate2DMake(40.005034, 116.490526);
+    self.tocoord = CLLocationCoordinate2DMake(39.9092509, 116.410599);
+
     self.toTitle = @"北京昆泰酒店";
-    
-    [AMapLocationServices sharedServices].apiKey = @"edcd8c0f9822842d005cf2fe4b516461";
 }
 
 - (NSString *)getErrorDescription:(INTULocationStatus)status {
@@ -69,32 +66,6 @@
 - (IBAction)startLocationAction:(id)sender {
     __weak __typeof(self)weakSelf = self;
 
-//    self.locationManager = [[AMapLocationManager alloc] init];
-//    // 带逆地理（返回坐标和地址信息）
-//    [self.locationManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
-//        
-//        if (error)
-//        {
-//            NSLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
-//            
-//            weakSelf.statusLabel.text = [NSString stringWithFormat:@"locError:{%ld - %@};", (long)error.code, error.localizedDescription];
-//            if (error.code == AMapLocationErrorReGeocodeFailed)
-//            {
-//                return;
-//            }
-//        }
-//        
-//        NSLog(@"location:%@", location);
-//        
-//        if (regeocode)
-//        {
-//            NSLog(@"reGeocode:%@", regeocode);
-//        }
-//        
-//        weakSelf.statusLabel.text = [NSString stringWithFormat:@"location:%@, reGeocode:%@", location, regeocode];
-//    }];
-    
-    
     INTULocationManager *locMgr = [INTULocationManager sharedInstance];
     [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyCity
                                                                 timeout:10
@@ -211,16 +182,18 @@
 
         [MKMapItem openMapsWithItems:[NSArray arrayWithObjects:fromMapItem, toMapItem, nil]
                        launchOptions:@{MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsShowsTrafficKey:@(YES)}];
-    }
-    else {
+    } else {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:model.urlString]];
     }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender {
     MapViewController *vc = segue.destinationViewController;
-    vc.fromcoord = self.location.coordinate;
-    vc.tocoord = self.tocoord;
+    SSAnnotation *annotation = [[SSAnnotation alloc] init];
+    annotation.coordinate = self.tocoord;
+    annotation.title = @"title";
+    annotation.subtitle = @"subtitle";
+    vc.annotation = annotation;
 }
 
 - (void)didReceiveMemoryWarning {
