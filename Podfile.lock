@@ -1,10 +1,13 @@
 PODS:
+  - APOfflineReverseGeocoding (0.0.2)
   - INTULocationManager (4.2.0)
 
 DEPENDENCIES:
+  - APOfflineReverseGeocoding (~> 0.0.2)
   - INTULocationManager (~> 4.1)
 
 SPEC CHECKSUMS:
+  APOfflineReverseGeocoding: 8adf31a848f2af5bc83cffbc821420542dd419dc
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
 
 COCOAPODS: 0.39.0

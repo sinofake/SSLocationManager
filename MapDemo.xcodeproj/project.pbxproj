@@ -8,16 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		000549E71D2A70B900E987B0 /* SSAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 000549E61D2A70B900E987B0 /* SSAnnotation.m */; };
+		00288AC91D50940D00B76E8A /* SSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00288AC81D50940D00B76E8A /* SSLocationManager.m */; };
+		00288ACC1D50A6FA00B76E8A /* SSReverseGeocoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 00288ACB1D50A6FA00B76E8A /* SSReverseGeocoding.m */; };
+		00288ACF1D50A81E00B76E8A /* SSAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 00288ACE1D50A81E00B76E8A /* SSAddress.m */; };
 		007807ED1BF73CC700513761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 007807EC1BF73CC700513761 /* main.m */; };
 		007807F01BF73CC700513761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 007807EF1BF73CC700513761 /* AppDelegate.m */; };
-		007807F31BF73CC700513761 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 007807F21BF73CC700513761 /* ViewController.m */; };
 		007807F61BF73CC700513761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007807F41BF73CC700513761 /* Main.storyboard */; };
 		007807F81BF73CC700513761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007807F71BF73CC700513761 /* Assets.xcassets */; };
 		007808061BF73CC700513761 /* MapDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 007808051BF73CC700513761 /* MapDemoTests.m */; };
-		007808121BF77E8200513761 /* SSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 007808111BF77E8200513761 /* SSLocation.m */; };
 		007808151BF78E6000513761 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 007808141BF78E6000513761 /* NSString+URLEncoding.m */; };
 		007808181BF791CB00513761 /* MapNavModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 007808171BF791CB00513761 /* MapNavModel.m */; };
 		009713B31BF7B548003A5F7C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009713B21BF7B548003A5F7C /* MapViewController.m */; };
+		00EE76251D5340A60094D25D /* SSCoordinateTransform.c in Sources */ = {isa = PBXBuildFile; fileRef = 00EE76231D5340A60094D25D /* SSCoordinateTransform.c */; };
+		00EE76271D5341000094D25D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EE76261D5341000094D25D /* ViewController.m */; };
 		F2C82D244418316213CF4A53 /* libPods-MapDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 666E4741232DB33119D14F98 /* libPods-MapDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -34,26 +37,33 @@
 /* Begin PBXFileReference section */
 		000549E51D2A70B900E987B0 /* SSAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAnnotation.h; sourceTree = "<group>"; };
 		000549E61D2A70B900E987B0 /* SSAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAnnotation.m; sourceTree = "<group>"; };
+		00288AC71D50940D00B76E8A /* SSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocationManager.h; sourceTree = "<group>"; };
+		00288AC81D50940D00B76E8A /* SSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocationManager.m; sourceTree = "<group>"; };
+		00288ACA1D50A6FA00B76E8A /* SSReverseGeocoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSReverseGeocoding.h; sourceTree = "<group>"; };
+		00288ACB1D50A6FA00B76E8A /* SSReverseGeocoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSReverseGeocoding.m; sourceTree = "<group>"; };
+		00288ACD1D50A81E00B76E8A /* SSAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAddress.h; sourceTree = "<group>"; };
+		00288ACE1D50A81E00B76E8A /* SSAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAddress.m; sourceTree = "<group>"; };
 		007807E81BF73CC700513761 /* MapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007807EC1BF73CC700513761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		007807EE1BF73CC700513761 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		007807EF1BF73CC700513761 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		007807F11BF73CC700513761 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		007807F21BF73CC700513761 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		007807F51BF73CC700513761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		007807F71BF73CC700513761 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		007807FC1BF73CC700513761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		007808011BF73CC700513761 /* MapDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		007808051BF73CC700513761 /* MapDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapDemoTests.m; sourceTree = "<group>"; };
 		007808071BF73CC700513761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		007808101BF77E8200513761 /* SSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLocation.h; sourceTree = "<group>"; };
-		007808111BF77E8200513761 /* SSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLocation.m; sourceTree = "<group>"; };
 		007808131BF78E6000513761 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		007808141BF78E6000513761 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		007808161BF791CB00513761 /* MapNavModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNavModel.h; sourceTree = "<group>"; };
 		007808171BF791CB00513761 /* MapNavModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNavModel.m; sourceTree = "<group>"; };
 		009713B11BF7B548003A5F7C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		009713B21BF7B548003A5F7C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		00EE76221D5322FC0094D25D /* SSLocationManagerDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLocationManagerDefine.h; sourceTree = "<group>"; };
+		00EE76231D5340A60094D25D /* SSCoordinateTransform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SSCoordinateTransform.c; sourceTree = "<group>"; };
+		00EE76241D5340A60094D25D /* SSCoordinateTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCoordinateTransform.h; sourceTree = "<group>"; };
+		00EE76261D5341000094D25D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		666E4741232DB33119D14F98 /* libPods-MapDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MapDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		991000DA0C713CD595D695ED /* Pods-MapDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapDemo/Pods-MapDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CAD6AC809355CE56AA0FFDC9 /* Pods-MapDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapDemo/Pods-MapDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +88,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00288AC31D5093BD00B76E8A /* SSLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				00288AC71D50940D00B76E8A /* SSLocationManager.h */,
+				00288AC81D50940D00B76E8A /* SSLocationManager.m */,
+				00288ACA1D50A6FA00B76E8A /* SSReverseGeocoding.h */,
+				00288ACB1D50A6FA00B76E8A /* SSReverseGeocoding.m */,
+				00288ACD1D50A81E00B76E8A /* SSAddress.h */,
+				00288ACE1D50A81E00B76E8A /* SSAddress.m */,
+				00EE76221D5322FC0094D25D /* SSLocationManagerDefine.h */,
+				00EE76231D5340A60094D25D /* SSCoordinateTransform.c */,
+				00EE76241D5340A60094D25D /* SSCoordinateTransform.h */,
+			);
+			path = SSLocationManager;
+			sourceTree = "<group>";
+		};
 		007807DF1BF73CC700513761 = {
 			isa = PBXGroup;
 			children = (
@@ -101,18 +127,17 @@
 		007807EA1BF73CC700513761 /* MapDemo */ = {
 			isa = PBXGroup;
 			children = (
+				00288AC31D5093BD00B76E8A /* SSLocationManager */,
 				007807EE1BF73CC700513761 /* AppDelegate.h */,
 				007807EF1BF73CC700513761 /* AppDelegate.m */,
 				007807F11BF73CC700513761 /* ViewController.h */,
-				007807F21BF73CC700513761 /* ViewController.m */,
+				00EE76261D5341000094D25D /* ViewController.m */,
 				009713B11BF7B548003A5F7C /* MapViewController.h */,
 				009713B21BF7B548003A5F7C /* MapViewController.m */,
 				000549E51D2A70B900E987B0 /* SSAnnotation.h */,
 				000549E61D2A70B900E987B0 /* SSAnnotation.m */,
 				007808161BF791CB00513761 /* MapNavModel.h */,
 				007808171BF791CB00513761 /* MapNavModel.m */,
-				007808101BF77E8200513761 /* SSLocation.h */,
-				007808111BF77E8200513761 /* SSLocation.m */,
 				007808131BF78E6000513761 /* NSString+URLEncoding.h */,
 				007808141BF78E6000513761 /* NSString+URLEncoding.m */,
 				007807F41BF73CC700513761 /* Main.storyboard */,
@@ -308,12 +333,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				007808151BF78E6000513761 /* NSString+URLEncoding.m in Sources */,
-				007807F31BF73CC700513761 /* ViewController.m in Sources */,
 				000549E71D2A70B900E987B0 /* SSAnnotation.m in Sources */,
+				00288ACC1D50A6FA00B76E8A /* SSReverseGeocoding.m in Sources */,
 				007807F01BF73CC700513761 /* AppDelegate.m in Sources */,
-				007808121BF77E8200513761 /* SSLocation.m in Sources */,
+				00EE76251D5340A60094D25D /* SSCoordinateTransform.c in Sources */,
+				00EE76271D5341000094D25D /* ViewController.m in Sources */,
+				00288ACF1D50A81E00B76E8A /* SSAddress.m in Sources */,
 				007808181BF791CB00513761 /* MapNavModel.m in Sources */,
 				007807ED1BF73CC700513761 /* main.m in Sources */,
+				00288AC91D50940D00B76E8A /* SSLocationManager.m in Sources */,
 				009713B31BF7B548003A5F7C /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,9 @@
 
 #import "NSString+URLEncoding.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @implementation NSString (URLEncoding)
 - (NSString *)URLEncodedString {
     //!*'();:@&amp;=+$,/?%#[]
@@ -34,3 +37,5 @@
 
 
 @end
+
+#pragma clang diagnostic pop

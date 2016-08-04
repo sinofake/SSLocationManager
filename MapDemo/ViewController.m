@@ -7,20 +7,21 @@
 //
 
 #import "ViewController.h"
-#import <INTULocationManager.h>
-#import "SSLocation.h"
 #import "NSString+URLEncoding.h"
 #import "MapNavModel.h"
 #import <MapKit/MapKit.h>
 #import "MapViewController.h"
-
-
+#import "SSLocationManager.h"
+#import "SSCoordinateTransform.h"
 
 @interface ViewController ()<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (nonatomic, strong) SSLocation *location;
+
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, assign) CLLocationCoordinate2D fromcoord;
 @property (nonatomic, assign) CLLocationCoordinate2D tocoord;
 @property (nonatomic, copy) NSString *toTitle;
+
 @property (nonatomic, strong) NSArray *navModels;
 
 @end
@@ -47,66 +48,37 @@
     self.toTitle = @"北京昆泰酒店";
 }
 
-- (NSString *)getErrorDescription:(INTULocationStatus)status {
-    if (status == INTULocationStatusServicesNotDetermined) {
-        return @"Error: User has not responded to the permissions alert.";
-    }
-    if (status == INTULocationStatusServicesDenied) {
-        return @"Error: User has denied this app permissions to access device location.";
-    }
-    if (status == INTULocationStatusServicesRestricted) {
-        return @"Error: User is restricted from using location services by a usage policy.";
-    }
-    if (status == INTULocationStatusServicesDisabled) {
-        return @"Error: Location services are turned off for all apps on this device.";
-    }
-    return @"An unknown error occurred.\n(Are you using iOS Simulator with location set to 'None'?)";
-}
-
 - (IBAction)startLocationAction:(id)sender {
-    __weak __typeof(self)weakSelf = self;
-
-    INTULocationManager *locMgr = [INTULocationManager sharedInstance];
-    [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyCity
-                                                                timeout:10
-                                                   delayUntilAuthorized:YES
-                                                                  block:
-                              ^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-                                  __typeof(weakSelf) strongSelf = weakSelf;
-                                  
-                                  if (status == INTULocationStatusSuccess) {
-                                      // achievedAccuracy is at least the desired accuracy (potentially better)
-                                      strongSelf.statusLabel.text = [NSString stringWithFormat:@"Location request successful! Current Location:\n%@", currentLocation];
-                                      [strongSelf reverseGeocodeWithLocation:currentLocation];
-                                  }
-                                  else if (status == INTULocationStatusTimedOut) {
-                                      // You may wish to inspect achievedAccuracy here to see if it is acceptable, if you plan to use currentLocation
-                                      strongSelf.statusLabel.text = [NSString stringWithFormat:@"Location request timed out. Current Location:\n%@", currentLocation];
-                                  }
-                                  else {
-                                      // An error occurred
-                                      strongSelf.statusLabel.text = [strongSelf getErrorDescription:status];
-                                  }
-                              }];
-}
-
-- (void)reverseGeocodeWithLocation:(CLLocation *)rawLocation {
-    SSLocation *processedLocation = [[SSLocation alloc] initWithCLLocation:rawLocation];    
-    __weak __typeof(self)weakSelf = self;
-    __weak SSLocation *weakProcessedLocation = processedLocation;
-    [processedLocation startReverseGeocodeWithCompletionHandler:^(NSError *error) {
+    SSLocationManager *locationManager = [SSLocationManager sharedInstance];
+    locationManager.baiduAppKey = @"1OevpbfPmU5uXuNMCj8Q8CpO";
+    locationManager.baiduMcode = @"com.sskh.huaErSlimmingRing";
+    
+    [locationManager requestLocationWithDesiredAccuracy:INTULocationAccuracyBlock locationBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status, NSString *statusDescription) {
+        self.statusLabel.text = statusDescription;
+        if (status == INTULocationStatusSuccess) {
+            self.location = currentLocation;
+        }
+    } reverseGeocodeBlock:^(SSAddress *address, NSError *error) {
         if (error) {
-            weakSelf.statusLabel.text = error.localizedDescription;
+            self.statusLabel.text = error.localizedDescription;
+        } else {
+            self.statusLabel.text = address.description;
         }
-        else {
-            weakSelf.statusLabel.text = weakProcessedLocation.description;
-        }
-        weakSelf.location = weakProcessedLocation;
     }];
 }
 
 - (IBAction)navigationAction:(id)sender {
-    CLLocationCoordinate2D fromcoord = self.location.coordinate;
+    self.fromcoord = self.location.coordinate;
+
+    SSLocationManager *locationManager = [SSLocationManager sharedInstance];
+    if (locationManager.inMainland) {
+        double gcjLat;
+        double gcjLng;
+        wgs2gcj(self.location.coordinate.latitude, self.location.coordinate.longitude, &gcjLat, &gcjLng);
+        self.fromcoord = CLLocationCoordinate2DMake(gcjLat, gcjLng);
+    }
+    
+    CLLocationCoordinate2D fromcoord = self.fromcoord;
     CLLocationCoordinate2D tocoord = self.tocoord;
 
     NSString *bundleName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
@@ -118,6 +90,7 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"iosamap://"]]) {
         MapNavModel *model = [[MapNavModel alloc] init];
         model.type = MapNavTypeAmap;
+        //参数说明：http://lbs.amap.com/api/uri-api/ios-uri-explain/
         model.urlString = [NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2", [displayName URLEncodedString], scheme, tocoord.latitude,tocoord.longitude];
         [navModels addObject:model];
     }
@@ -126,6 +99,7 @@
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"baidumap://"]]) {
         MapNavModel *model = [[MapNavModel alloc] init];
         model.type = MapNavTypeBaidu;
+        //参数说明：http://developer.baidu.com/map/uri-intro.htm
         model.urlString = [NSString stringWithFormat:@"baidumap://map/direction?origin=%f,%f&destination=%f,%f&mode=driving&src=%@&coord_type=gcj02", fromcoord.latitude, fromcoord.longitude, tocoord.latitude, tocoord.longitude, bundleName];
         [navModels addObject:model];
     }
@@ -173,7 +147,7 @@
     
     MapNavModel *model = self.navModels[buttonIndex];
     if (model.type == MapNavTypeApple) {
-        MKPlacemark *fromPlacemark = [[MKPlacemark alloc] initWithCoordinate:self.location.coordinate addressDictionary:nil];
+        MKPlacemark *fromPlacemark = [[MKPlacemark alloc] initWithCoordinate:self.fromcoord addressDictionary:nil];
         MKPlacemark *toPlacemark = [[MKPlacemark alloc] initWithCoordinate:self.tocoord addressDictionary:nil];
         MKMapItem *fromMapItem = [[MKMapItem alloc] initWithPlacemark:fromPlacemark];
         fromMapItem.name = @"当前位置";
