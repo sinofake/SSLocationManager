@@ -2,6 +2,10 @@
 ##功能展示
 ![screenshot](demo.gif)
 
+## 使用
+支持通过 CocoaPods 安装。  
+``` pod 'SSLocationManager', '~> 0.1.1' ```
+
 
 ## 感谢
 

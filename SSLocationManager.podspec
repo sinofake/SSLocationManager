@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SSLocationManager"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "获取当前位置，反地理解析"
   #s.description = <<-DESC    DESC
   s.homepage     = "https://github.com/sinofake/SSLocationManager"
