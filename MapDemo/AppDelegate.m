@@ -6,9 +6,6 @@
 //  Copyright © 2015年 SINOFAKE SINEP. All rights reserved.
 //
 
-
-
-
 #import "AppDelegate.h"
 
 @interface AppDelegate ()

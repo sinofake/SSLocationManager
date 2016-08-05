@@ -25,7 +25,7 @@
     [text appendFormat:@"   [direction]: %@\n", self.direction];
     [text appendFormat:@"   [distance]: %@\n", self.distance];
     [text appendFormat:@"   [adcode]: %@\n", self.adcode];
-    [text appendFormat:@"   [countryCode]: %ld\n", self.countryCode];
+    [text appendFormat:@"   [countryCode]: %ld\n", (long)self.countryCode];
 
     [text appendFormat:@"</%@>", [self class]];
     return text;

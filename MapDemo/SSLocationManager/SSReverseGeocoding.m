@@ -267,6 +267,11 @@ typedef void (^SSRequestCompletedBlock)(id __nullable result, NSError * __nullab
     }
 }
 
+- (void)cancelReverseGeocode {
+    [self.geocoder cancelGeocode];
+    [self.urlSessionTask cancel];
+}
+
 #pragma mark - NSURLSessionTask
 - (NSURLSessionTask *)requestWithUrl:(NSURL *)url
               mehtod:(NSString *)method

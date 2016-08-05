@@ -20,5 +20,7 @@
 
 - (void)reverseGeocodeLocation:(CLLocation *)location strategy:(SSReverseGeocodingStrategy)strategy completionHandler:(SSReverseGeocodeBlock)block;
 
+- (void)cancelReverseGeocode;
+
 @end
 
